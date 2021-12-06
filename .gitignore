@@ -1,0 +1,6 @@
+# Ignore model results
+/SeismogenicIndex/*.mat
+/ETAS_models/*/*.mat
+
+# Ignore matlab swap files
+*.asv
