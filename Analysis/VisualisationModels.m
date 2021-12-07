@@ -31,7 +31,7 @@ load('FP_times_SI')
 load('SeismicityRate_SI.mat');
 NRecorded=zeros(length(FP_times),1);
 SumRateForecasted_SI=zeros(length(FP_times),1);
-for i=1:length(SeismicityRate_SI)
+for i=1:length(FP_times)
    SumRateForecasted_SI(i)=sum(SeismicityRate_SI(:,i),'omitnan');
    NRecorded(i)=sum(SeismicityRate_recorded(:,i),'omitnan');
 end
@@ -45,11 +45,11 @@ legend('Recorded','Simulated with Seismogenic Index model')
         % Log likelihood in time
 load('LLe_SI.mat');
 LLe_timeseries=zeros(length(FP_times),1);
-for i=1:length(FP_times_SI)
+for i=1:length(FP_times)
     LLe_timeseries(i)=sum(LLe_SI(:,i),'omitnan'); %sum of spatial LLe for every time step
 end
 figure(5)
-p5SI=plot(FP_times,LLe_timeseries,'Color',red1,'LineWidth'.2)
+p5SI=plot(FP_times,LLe_timeseries,'Color',red1,'LineWidth',2)
 xlabel('Date')
 ylabel('Log likelihood of models')
 legend([p5SI],'Seismogenic Index Model')
