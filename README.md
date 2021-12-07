@@ -1,5 +1,5 @@
 # Hengill Seismicity Forecasting Models
-This project is in the frame of the COSEISMIQ project (http://www.coseismiq.ethz.ch/en/home/) and comprises the models and data prepared for deliverables 6 and 7.
+This repository has been developed in the framework of the COSEISMIQ project (http://www.coseismiq.ethz.ch/en/home/) and comprises the models and data for running pseudo-forecasting model (see Deliverable 6 of COSEIMSIQ). The codes proposed here can be extended and applied in real-time provided the hydraulic/seismic data are updated accordingly.
 
 ## Folder structure
 
@@ -12,7 +12,7 @@ with model blocks in yellow, static data in green, analysis scripts in red and m
 
 ## Data
 ### Seismic data
-The seismic catalogue can be acquired openly through FDSN servers: http://www.coseismiq.ethz.ch/en/dissemination/catalogs/.
+The seismic catalogue can be acquired openly through FDSN servers: http://www.coseismiq.ethz.ch/en/dissemination/catalogs/. The data provided runs from Dec. 2018 to Aug. 2021.
 We use the medium quality catalogue (SED_auto_MQ, event score >-5, within the Hengill regional limits).
 A statistical analysis of the whole dataset shows that the overall magnitude of completeness (Mc) is 0.3, with a b-value of 0.93. For all models, we assume the Mc=0.3 and filter the catalogue above this magnitude. 
 ![alt text](https://github.com/RitzVanille/HengillSeismicityForecastingModels/raw/main/Data/Catalogue_Statistics.png "Statistical analysis of the SED_auto_MQ catalogue")
@@ -45,7 +45,7 @@ We take as a base Learning Period (LP) all the data recorded from Dec. 1st 2018 
 From each model's output, maps of the forecasted seismicity rates and log likelihood, temporal evolution of the forecasted number of events and temporal evolution of the log likelihood of the forecast can be computed with the VisualisationModels.m script.
 ### Models comparison and evaluation
 For each model, the N-test (as defined by the CSEP: https://cseptesting.org/) for each forecast in computed.
-Using ETAS0 as the null hypothesis, ComparisonModels.m computes the cumulative information gain of the models relative to this null hypothesis.
+Using ETAS0 as the null hypothesis, ComparisonModels.m computes the "Cumulative Information Gain" of the models relative to this null hypothesis.
 
 ## References
 
