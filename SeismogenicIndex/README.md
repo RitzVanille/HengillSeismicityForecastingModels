@@ -2,7 +2,7 @@
 This model is based on a purely empirical relationship between the injected volume and the 
 seismicity (e.g. Shapiro, 2018).  Other forms accounts, for example for the injection rate rather than the injected volume, as well as for an exponential decay of the seismicity after shut-in (Mignan et al., 2017; Broccardo et al., 2017).
 The proposed model provides a deterministic forecast with no flow model, and the expected number of events follow the relationship:
-![alt text](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/SeismogenicIndex/Nexpected_SeismogenicIndex.png "Number of events expected above magnitude of completeness")
+![equation](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/SeismogenicIndex/Nexpected_SeismogenicIndex.png)
 
 The minimization function is based on the Maximum Likelihood Estimate of Broccardo et al., 2017, modified for continuous operation (no shut-in): 
-![alt text](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/SeismogenicIndex/MLE_SeismogenicIndex.png "MLE for seismogenic index model")
+![equation](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/SeismogenicIndex/MLE_SeismogenicIndex.png)

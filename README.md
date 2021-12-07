@@ -2,11 +2,11 @@
 
 ## Folder structure
 
-![alt text](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/FolderStructure.png "folder structure od project")
+![ScreenShot](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/FolderStructure.png)
 
 ## Run down of streams
-
-![alt text](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/StructureHengillModels.png "folders interactions")
+The figure below shows a simplified visualisation of the interactions of the different folders and files of the project
+![ScreenShot](https://raw.githubusercontent.com/RitzVanille/HengillSeismicityForecastingModels/main/StructureHengillModels.png)
 with model blocks in yellow, static data in green, analysis scripts in red and model outputs in purple.
 
 ## Data
