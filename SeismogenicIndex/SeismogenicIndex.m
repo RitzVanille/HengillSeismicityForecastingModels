@@ -154,3 +154,4 @@ end
 save('LLe_SI.mat','LLe_SI');
 save('FP_times_SI.mat','FP_times');
 
+toc

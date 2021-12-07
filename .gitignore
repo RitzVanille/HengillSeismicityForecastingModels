@@ -4,3 +4,7 @@
 
 # Ignore matlab swap files
 *.asv
+
+# Ignore organigram files for documentation building
+*.drawio
+
