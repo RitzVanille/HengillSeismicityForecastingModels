@@ -1,8 +1,12 @@
 # Hengill Seismicity Forecasting Models
-This repository has been developed in the framework of the COSEISMIQ project (http://www.coseismiq.ethz.ch/en/home/) and comprises the models and data for running pseudo-forecasting model (see Deliverable 6 of COSEIMSIQ). The codes proposed here can be extended and applied in real-time provided the hydraulic/seismic data are updated accordingly.
+This repository has been developed in the framework of the COSEISMIQ project (http://www.coseismiq.ethz.ch/en/home/) and comprises the models and data for running pseudo-forecasting model (see Deliverable 6 of COSEISMIQ). The codes proposed here can be extended and applied in real-time provided the hydraulic/seismic data are updated accordingly.
 
 ## Folder structure
 
+The repository is organised in three categories: 
+- models (in yellow in the folder graph)
+- static data (green)
+- analysis and model comparison (red).
 ![alt text](https://github.com/RitzVanille/HengillSeismicityForecastingModels/raw/main/FolderStructure.png "Folder structure")
 
 ## Run down of streams
@@ -29,13 +33,13 @@ Details can be found for each model in their respective folder's README
 
 ### Seismogenic Index Model
 Based on Mignan et al., 2016; Shapiro, 2018; Broccardo et al., 2020.
-This model is implemented without a shut-in phase, with cumulative volumes spatially distributed and productivity `a_{fbi}` and the Gutenberg-Richter b-value estimated by minimizing the residuals with a maximum likelihood optimisation function (modified from Broccardo et al., 2017).
+This model is implemented without a shut-in phase, with cumulative volumes spatially distributed and productivity a<sub>fb</sub> and the Gutenberg-Richter b-value estimated by minimizing the residuals with a maximum likelihood optimisation function (modified from Broccardo et al., 2017).
 
 ### ETAS type models
 Three version of ETAS are implemented:
-- the null hypothesis `ETAS_{0}` 
-- an Advanced ETAS model with spatially varying background rate
-- a prototype of ETAS with hydraulic coupling based on injection and production rate
+- the null hypothesis ETAS<sub>0</sub>
+- an advanced ETAS model with spatially varying background rate ETAS<sub>a</sub>
+- a prototype of ETAS with hydraulic coupling based on injection and production rate ETAS<sub>hydro</sub>
 
 ## Learning and forecasting periods
 We take as a base Learning Period (LP) all the data recorded from Dec. 1st 2018 up to Feb. 1st, 2020. Using this data, we calibrate all the competing models. Then we perform a daily forecast and update the LP with the additional information. We do this process of training and forecasting repeatedly until the end of the dataset on Feb. 1st 2021.
