@@ -5,9 +5,8 @@ clear all
     % Path to data 
 addpath('../Data/')
     % Path to models
-addpath('../ETAS0/')
-addpath('../ETAS_advanced/')
-addpath('../ETAS_hydro/')
+addpath('../ETAS_models/ETAS0/Outputs/')
+%addpath('../ETAS_advanced/')
 addpath('../SeismogenicIndex/')
     % Colour loading and appearance specifications
 batlowW=[1 1 1;flip(crameri('batlow'))];
@@ -36,23 +35,13 @@ for i=1:length(FP_times)
    NRecorded(i)=sum(SeismicityRate_recorded(:,i),'omitnan');
 end
 figure(4)
+title('Seismogenic Index Model')
 plot(1:length(FP_times),NRecorded)   
 hold on
 plot(1:length(FP_times),SumRateForecasted_SI)
 xlabel('Forecast number')
 ylabel('Number of events above Mc')
 legend('Recorded','Simulated with Seismogenic Index model')
-        % Log likelihood in time
-load('LLe_SI.mat');
-LLe_timeseries=zeros(length(FP_times),1);
-for i=1:length(FP_times)
-    LLe_timeseries(i)=sum(LLe_SI(:,i),'omitnan'); %sum of spatial LLe for every time step
-end
-figure(5)
-p5SI=plot(FP_times,LLe_timeseries,'Color',red1,'LineWidth',2)
-xlabel('Date')
-ylabel('Log likelihood of models')
-legend([p5SI],'Seismogenic Index Model')
         % Seismicity rate maps
 forecastNum=110; %forecast number to plot (to fill manually)    
 figure(6)
@@ -66,3 +55,36 @@ c=colorbar;
 c.Label.String='log_{10}(Seismicity rate (M \geq M_{c}))'
 axis tight equal
 title(datestr(FP_times(forecastNum)))
+
+    %ETAS0 model
+load('FP_ETAS_Times.mat')
+        %Comparison total recorded/expected in time
+load('Rate_Events_ETAS.mat');
+NRecorded=zeros(length(FP_ETAS_Times),1);
+SumRateForecasted_ETAS0=zeros(length(FP_ETAS_Times),1);
+for i=1:length(FP_ETAS_Times)
+   SumRateForecasted_ETAS0(i)=sum(Rate_Events_ETAS(:,i),'omitnan');
+   NRecorded(i)=sum(SeismicityRate_recorded(:,i),'omitnan');
+end
+figure(14)
+title('ETAS0 Model')
+plot(1:length(FP_ETAS_Times),NRecorded)   
+hold on
+plot(1:length(FP_ETAS_Times),SumRateForecasted_ETAS0)
+xlabel('Forecast number')
+ylabel('Number of events above Mc')
+legend('Recorded','Simulated with ETAS0 Model')
+        % Seismicity rate maps
+forecastNum=13; %forecast number to plot (to fill manually)    
+figure(16)
+pcolor(LonGMat,LatGMat,log10(reshape(Rate_Events_ETAS(:,forecastNum),[size(LonGMat,1),size(LonGMat,2)])))
+ylim([63.98 64.08])
+xlim([-21.5 -21.25])
+caxis([-2 0])
+xlabel('Longitude')
+ylabel('Latitude')
+colormap(batlowW)
+c=colorbar;
+c.Label.String='log_{10}(Seismicity rate (M \geq M_{c}))'
+axis tight equal
+title(datestr(FP_ETAS_Times(forecastNum)))
